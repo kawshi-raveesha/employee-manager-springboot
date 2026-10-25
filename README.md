@@ -16,3 +16,4 @@ A Spring Boot CRUD application to manage employee records, connected to a MySQL 
 4. Run the application using your IDE or the terminal:
    ```bash
    ./mvnw spring-boot:run
+   

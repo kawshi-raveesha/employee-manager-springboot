@@ -19,13 +19,14 @@ public class EmployeeController {
     }
 
     // 1. READ: Show the form and the table (GET)
-    @GetMapping("/employees")
-    public String viewHomePage(Model model) {
+    @RequestMapping(value = "/employees", method = RequestMethod.GET)
+    public String viewHomePage(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
         // Add the list of employees to the page
-        model.addAttribute("employees", employeeService.getAllEmployees());
+         model.addAttribute("employees", employeeService.getEmployeesByKeyword(keyword));
         // Add an empty employee object for the Thymeleaf form to bind to
+        model.addAttribute("keyword", keyword);
         model.addAttribute("employee", new Employee());
-        return "employees"; // This will look for employees.html
+        return "employees"; //This will look for employees.html
     }
 
     // 2. CREATE: Save a new employee (POST)

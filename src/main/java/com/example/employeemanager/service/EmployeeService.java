@@ -41,5 +41,13 @@ public class EmployeeService {
     // 5. DUPLICATE CHECK: Check if an email already exists (needed for the validation test)
     public boolean isEmailAlreadyRegistered(String email) {
         return employeeRepository.findByEmail(email).isPresent();
+        
     }
+
+    public List<Employee> getEmployeesByKeyword(String keyword) {
+    if (keyword != null && !keyword.trim().isEmpty()) {
+        return employeeRepository.findByFullNameContainingIgnoreCase(keyword.trim());
+    }
+    return employeeRepository.findAll();
+}
 }
