@@ -1,6 +1,5 @@
 package com.example.employeemanager.model;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -43,6 +42,4 @@ public class Employee {
     @NotNull(message = "Salary is required")
     @Positive(message = "Salary must be greater than 0")
     private Double salary;   
-
-
 }
